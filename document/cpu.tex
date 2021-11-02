@@ -1,0 +1,946 @@
+\documentclass[12pt,a4paper]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+%\usepackage{blindtext}
+%\usepackage{showframe}
+\usepackage{tikz}
+\usetikzlibrary{automata, shapes, positioning, arrows}
+\usepackage{tabu}
+%%%\usepackage{bookmark}
+\usepackage{amsmath}
+ %%%%%\bookmarksetup{color=[rgb]{0,0,0}}
+
+\usepackage{lipsum}
+\usepackage{tikz-timing}[2014/10/29]
+\usetikztiminglibrary{clockarrows}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\definecolor{bgblue}{rgb}{0.41961,0.80784,0.80784}%
+\definecolor{bgred}{rgb}{1,0.61569,0.61569}%
+\definecolor{fgblue}{rgb}{0,0,0.6}%
+\definecolor{fgred}{rgb}{0.6,0,0}%
+
+
+\usepackage{color}   %May be necessary if you want to color links
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=black,  %choose some color if you want links to stand out
+}
+
+
+
+
+
+
+\NewDocumentCommand{\busref}{som}{\texttt{%
+#3%
+\IfValueTF{#2}{[#2]}{}%
+\IfBooleanTF{#1}{\#}{}%
+}}
+
+%%%%%%%https://nathantypanski.com/blog/2014-10-29-tikz-timing.html
+
+\newcommand{\comment}[1]{}
+
+
+
+ 
+\renewcommand{\chaptername}{} %% remove the word \chapter
+
+\tikzset{
+->, % makes the edges directed
+>=stealth, % makes the arrow heads bold
+node distance=6cm, % specifies the minimum distance between two nodes. Change if necessary.
+%every state/.style={thick, fill=gray!10}, % sets the properties for each ’state’ node
+initial text=$reset$, % sets the text that appears on the start arrow
+%
+}
+
+
+
+\tikzstyle{decision} = [diamond, draw, fill=white!20, 
+    text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=white!20, 
+    text width=6em, text centered, rounded corners, minimum height=1em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=white!20, node distance=3cm,
+    minimum height=4em]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+
+
+
+\fancypagestyle{logo}{
+\fancyhead[RH]{\includegraphics{logo.png}}
+}
+ 
+
+
+\fancyfoot[L]{
+\begin{center}
+\begin{tabular}{ |c| } 
+ \hline
+Doc. Name:  SSP332i User Manual  \hspace{2cm}                    \\
+\hline
+%Doc. No 1 \hspace{1.5cm}  Doc.Issue No : 01 \hspace{1cm}      Page No : \thepage   \\
+\hline
+\end{tabular}
+\end{center}
+}
+
+
+
+
+
+
+
+
+
+\begin{document}
+
+
+\thispagestyle{logo}
+\begin{center}
+
+\vspace{20mm}
+\textbf{}
+\vspace{5mm}
+\\
+\textbf{}
+\vspace{5mm}
+\vspace{5mm}
+\\ {\large{\textbf{ SSP332i User Manual}}} 
+\\{\textbf{}}
+\vspace{20mm}
+%\\
+%{\Large{{Hardware Design Group}}}
+\vspace{10mm}
+%\\
+%{\Large{{Centre for Development of Advanced Computing}}}
+%\\
+\vspace{10mm}
+%{\Large{{Thiruvananthapuram}}}
+\end{center}
+\vspace{105mm}
+\hspace{60mm}
+\textbf{JUNE 2021}
+
+
+
+   \newpage
+
+
+%\begin{center}
+% \begin{tabular}{|c c |} 
+% \hline
+%Doc. Name & \                                            \  \\ [2ex]
+% \hline
+% Project  & \                                                \  \\ [2ex]
+% \hline
+%\end{tabular}
+%\end{center}
+
+
+%\begin{center}
+% \begin{tabular}{|c c c c|} 
+ %\hline
+ %Col1 & Col2 & Col2 & Col3 \\ [0.5ex] 
+% \hline\hline
+ %1 & 6 & 87837 & 787 \\ 
+ %\hline
+% 2 & 7 & 78 & 5415 \\
+%\hline
+% 3 & 545 & 778 & 7507 \\
+% \hline
+% 4 & 545 & 18744 & 7560 \\
+ %\hline
+ %5 & 88 & 788 & 6344 \\ [1ex] 
+ %\hline
+%\end{tabular}
+%\end{center}
+
+
+
+
+
+
+
+
+\tableofcontents
+\thispagestyle{logo}
+\listoffigures
+\thispagestyle{logo}
+\listoftables
+\thispagestyle{logo}
+
+\pagestyle{logo}
+\chapter{Block Diagram}
+\thispagestyle{logo}
+\section{Core}
+The SSP332i SoC has a 32bit 3-stage RISCV32I core at its heart. It supports all the RISCV32I instructions and the M mode privilege level. There is provison for the core to raise an exception on illegal instruction, load-store address misalignment, instruction address misallignment, software interrupt, timer interrupt and external interrupt. All memory access are single cycled. The pipeline executes by fowarding the data in case of a dependent instruction. All load and store causes a single cycle stall in the pipeline. There is no  branch prediction nor any cache or any other fancy stuff.
+
+The reset values of various important registers  is given in the table \ref{tab:reg}.
+\begin{table} 
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c| } 
+ \hline
+Register  &  Reset Value  \\ 
+\hline
+PC &  0x000010000   \\
+ \hline
+Stack Pointer &  0x0001FFFF   \\
+ \hline
+\end{tabular}
+\caption{\label{tab:reg} Reset value of core registers}
+\end{center}
+\end{table}
+
+
+
+\subsection{Clock and Reset}
+The system clock is set as 24Mhz on the Tang primer board and reset is active low. For further configuration use the PLL IP.
+
+
+\section{Bus Interface}
+The core has 2 separate bus for interfacing the Instruction memory and Data memory. The instruction memory is a simple address, data interface. The data memory conforms to a standard APB interface standard.
+
+
+\subsection{Advanced Peripheral bus protocol}
+
+The Advanced Peripheral Bus (APB) is part of the Advanced Microcontroller Bus Architecture (AMBA) protocol family. It defines a low-cost interface that is optimized for minimal power consumption and reduced interface complexity. The APB protocol is not pipelined. It is used connect to low-bandwidth peripherals that do not require the high performance of the AXI protocol. The APB protocol relates a signal transition to the rising edge of the clock, to simplify the integration of APB peripherals into any design flow. Every transfer takes at least two cycles.
+
+\subsection{AMBA APB signals}
+
+\begin{itemize}
+
+\item	PCLK     - The rising edge of PCLK times all transfers on the APB.
+\item	PRESETn    -The APB reset signal is active LOW. This signal is normally connected directly to the system bus reset signal.
+\item	PADDR   -    This is the APB address bus. It can be up to 32 bits wide and is driven by the peripheral bus bridge unit.
+\item	PPROT    -   This signal indicates the normal, privileged, or secure protection level of the transaction and whether the transaction is a data access or an instruction access.
+\item	PSELx    -   The APB bridge unit generates this signal to each peripheral bus slave. It indicates that the slave device is selected and that a data transfer is required. There is a PSELx signal for each slave.
+\item	PENABLE  (APB bridge Enable ) This signal indicates the second and subsequent cycles of an APB transfer.
+\item	PWRITE  (APB bridge Direction) - This signal indicates an APB write access when HIGH and an APB read access when LOW.
+\item	PWDATA (APB bridge Write data) - This bus is driven by the peripheral bus bridge unit  during     write  cycles when PWRITE is HIGH. This bus can be up to 32 bits wide.
+\item	PSTRB  (APB bridge Write strobes)  - This signal indicates which byte lanes to update during a write transfer. There is one write strobe for each eight bits of the write data bus.
+\item	PREADY   -  Slave interface Ready. The slave uses this signal to extend an APB transfer.
+\item	PRDATA   -  Slave interface Read Data. The selected slave drives this bus during read cycles.
+\item	PSLVERR  -  Slave interface error, This signal indicates a transfer failure.
+
+
+\end{itemize}
+
+
+\subsection{Write transfers}
+
+There are two types of write transfers:
+
+\begin{itemize}
+\item	Write transfer without wait state
+\item	Write transfer with wait states
+\end{itemize}
+
+
+
+A write transfer starts with address PADDR, write data PWDATA, write signal PWRITE, and select signal PSEL, being registered at the rising edge of PCLK. This is called the Setup phase of the write transfer. At the next clock cycle enable signal PENABLE, and ready signal PREADY, are registered at the rising edge of PCLK. 
+When asserted, PENABLE indicates the start of the Access phase of the transfer. When asserted, PREADY indicates that the slave can complete the transfer at the next rising edge of PCLK. The address PADDR, write data PWDATA, and control signals all remain valid until the transfer completes. The enable signal PENABLE, is de-asserted at the end of the transfer. The select signal PSEL, is also de-asserted unless the transfer is to be followed immediately by another transfer to the same peripheral
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\centering
+%\includegraphics[scale=0.8]{AP_WRITE.png}
+%\caption{Write transfer with no wait states}
+
+\begin{figure}[ht]
+\begin{tikztimingtable}[%
+    timing/dslope=0.2,
+    timing/.style={x=5ex,y=2ex},
+    x=5ex,
+    timing/rowdist=4ex,
+    timing/name/.style={font=\sffamily\scriptsize}
+]
+\busref{PCLK}         & 9{C} \\
+\busref{PADDR}   & 1L 4D{addr} 4U \\
+\busref{PWRITE}      & 1L 4H 4L\\
+\busref{PSEL}      & 1L 4H 4L\\
+\busref{PENABLE}       & 3L 2H 4L\\
+\busref{PWDATA}        & 1L 4D{data} 4U \\
+\busref{PREADY}        & 3L 2H 4L\\
+\extracode
+\begin{pgfonlayer}{background}
+\begin{scope}[semitransparent ,semithick]
+\vertlines[darkgray,dotted]{1,2 ,...,8.0}
+\end{scope}
+\end{pgfonlayer}
+\end{tikztimingtable}
+\caption{Write transfer with no wait states}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+The PREADY signal can be extended low if the slave device is not able to accept the write transfer, in such a case the PENABLE is extended. Such and transfer is called write transfer with wait states. The core however \textbf{does not support wait states}.
+
+
+\comment {
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.8]{AP_WRITE_DELAY.png}
+\caption{Write transfer with wait states}
+\end{figure}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\centering
+%\includegraphics[scale=0.8]{AP_WRITE.png}
+%\caption{Write transfer with no wait states}
+
+\begin{figure}[ht]
+\begin{tikztimingtable}[%
+    timing/dslope=0.2,
+    timing/.style={x=5ex,y=2ex},
+    x=5ex,
+    timing/rowdist=4ex,
+    timing/name/.style={font=\sffamily\scriptsize}
+]
+\busref{PCLK}         & 9{C} \\
+\busref{PADDR}   & 1L 6D{addr} 2U \\
+\busref{PWRITE}      & 1L 6H 2L\\
+\busref{PSEL}      & 1L 6H 2L\\
+\busref{PENABLE}       & 3L 4H 2L\\
+\busref{PWDATA}        & 1L 6D{data} 2U \\
+\busref{PREADY}        & 5L 2H 2L\\
+\extracode
+\begin{pgfonlayer}{background}
+\begin{scope}[semitransparent ,semithick]
+\vertlines[darkgray,dotted]{1,2 ,...,8.0}
+\end{scope}
+\end{pgfonlayer}
+\end{tikztimingtable}
+\caption{Write transfer with wait states \textbf{not supported by the core}}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\subsection{Read transfers}
+
+Two types of read transfer are described in this section:
+\begin{itemize}
+\item With no wait states
+\item With wait states.
+\end{itemize}
+The signals timings for read transfer with and without waits states is shown in the figure.
+%%%%%%%%%%%%% \ref{rd_no_wait}.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[ht]
+\begin{tikztimingtable}[%
+    timing/dslope=0.2,
+    timing/.style={x=5ex,y=2ex},
+    x=4ex,
+    timing/rowdist=4ex,
+    timing/name/.style={font=\sffamily\scriptsize}
+]
+\busref{PCLK}         & 9{C} \\
+\busref{PADDR}   & 1L 4D{addr} 4U \\
+\busref{PWRITE}      & 1H 4L 4H\\
+\busref{PSEL}      & 1L 4H 4L\\
+\busref{PENABLE}       & 3L 2H 4L\\
+\busref{PRDATA}        & 1L 4D{data} 4U \\
+\busref{PREADY}        & 3L 2H 4L\\
+\extracode
+\begin{pgfonlayer}{background}
+\begin{scope}[semitransparent ,semithick]
+\vertlines[darkgray,dotted]{1,2 ,...,8.0}
+\end{scope}
+\end{pgfonlayer}
+\end{tikztimingtable}
+\caption{Read transfer with no wait states}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{figure}[ht]
+\begin{tikztimingtable}[%
+    timing/dslope=0.2,
+    timing/.style={x=5ex,y=2ex},
+    x=4ex,
+    timing/rowdist=4ex,
+    timing/name/.style={font=\sffamily\scriptsize}
+]
+\busref{PCLK}         & 9{C} \\
+\busref{PADDR}   & 1L 6D{addr} 2U \\
+\busref{PWRITE}      & 1H 6L 2H\\
+\busref{PSEL}      & 1L 6H 2L\\
+\busref{PENABLE}       & 3L 4H 2L\\
+\busref{PRDATA}        & 5L 2D{data} 2U \\
+\busref{PREADY}        & 5L 2H 2L\\
+\extracode
+\begin{pgfonlayer}{background}
+\begin{scope}[semitransparent ,semithick]
+\vertlines[darkgray,dotted]{1,2 ,...,8.0}
+\end{scope}
+\end{pgfonlayer}
+\end{tikztimingtable}
+\caption{Read transfer with wait states \textbf{not supported by the core}}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Addesss Mapping}
+
+The address map for the 12 peripherals is shown below :
+\begin{table} 
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c| } 
+ \hline
+Peripheral Number  &  Peripheral & Low Addesss & High Address  \\ 
+\hline
+RAM 8KB  &  0 & 0x1000\_0000 & 0x1000\_1FFF   \\
+ \hline
+UART & 1 & 0x4000\_0000 & 0x4000\_FFFF  \\
+ \hline
+PLIC & 2 & 0x5000\_0000 & 0x5000\_FFFF  \\
+ \hline
+GPIO & 3 & 0x6000\_0000 & 0x6000\_FFFF  \\
+ \hline
+SPI  & 4 & 0x7000\_0000 & 0x7000\_FFFF  \\
+ \hline
+ROM  & 5 & 0x0000\_0000 & 0x0000\_FFFF  \\
+ \hline
+SD  & 6 & 0x8000\_0000 & 0x8000\_FFFF  \\
+ \hline
+I2C  & 7 & 0x9000\_0000 & 0x9000\_FFFF  \\
+ \hline
+I2S  & 8 & 0xA000\_0000 & 0xA000\_FFFF  \\
+ \hline
+DFF\_RAM 1KB & 9 & 0xB000\_0000 & 0xB000\_03FF  \\
+\hline
+TIMER  & 10 & 0xC000\_0000 & 0xC000\_FFFF  \\
+\hline
+PWM  & 11 & 0xD000\_0000 & 0xD000\_FFFF  \\
+\hline
+\end{tabular}
+\caption{\label{tab:mapping} Address Mapping}
+\end{center}
+\end{table}
+
+
+
+
+
+\chapter{Peripherals}
+\thispagestyle{logo}
+The SoC consists of the following peripherals :-
+\begin{itemize}
+\item UART
+\item PLIC
+\item GPIO
+\item SPI
+\item SD Card interface
+\item I2C
+\item I2S
+\item TIMER
+\item PWM
+\end{itemize}
+
+
+\section{UART}
+
+The UART supports the following features :
+\begin{itemize}
+\item APB interface for register access and data transfers
+\item Supports default core configuration for 9600 baud, 8 bits data length, 1 stop bit and no parity
+\item 5, 6, 7 or 8 bits per character
+\item Odd, Even or no parity.
+\item 1, 2 stop bit.
+\item Internal baud rate generator.
+\item Modem control functions.
+\item Prioritized transmit, receive, line status and modem control interrupts.
+\item False start bit detection and recover.
+\item Line break detection and generation.
+\item Internal loopback diagnostic functionality.
+\item 16 character transmit and receive FIFOs.
+\item Designed with the same address space and register naming as Xilinx AXI UART.
+\end{itemize}
+\subsection{Register Space}
+
+\begin{table} [ht]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c| } 
+ \hline
+LCR[7]  &  Addesss Offset & Name & R/W & Description  \\ 
+ \hline
+0 & 0x1000 &  RBR &  RO &  Receiver Buffer Register \\
+ \hline
+0 & 0x1000  & THR &  WO  & Transmitter Holding Register \\
+ \hline
+0 &  0x1004 &  IER &  R/W &  Interrupt Enable Register \\
+ \hline
+x &  0x1008 &  IIR  & RO &  Interrupt Identification Register \\
+ \hline
+x &  0x1008 &  FCR  & WO &  FIFO Control Register \\
+ \hline
+1 &  0x1008 &  FCR  & RO &  FIFO Control Register \\
+ \hline
+x &  0x100C &  LCR  & R/W &  Line Control Register \\
+ \hline
+x &  0x1010 &  MCR  & R/W &  Modem Control Register \\
+ \hline
+x &  0x1014 &  LSR &  R/W &  Line Status Register \\
+ \hline
+x &  0x1018 &  MSR & R/W  &  R/W Modem Status Register \\
+ \hline
+x &  0x101C &  SCR &  R/W  & Scratch Register \\
+ \hline
+1 &  0x1000  & DLL  & R/W  & Divisor Latch (LSB) Register \\
+ \hline
+1 &  0x1004 &  DLM  & R/W  & Divisor Latch (MSB) Register \\
+\hline
+\end{tabular}
+\caption{\label{tab:uart_space} Address Mapping}
+\end{center}
+\end{table}
+
+
+\subsection{Receiver Buffer Register - (RBR) [Read Only] }
+\hspace{1.6cm}
+\textbf{Address - 0x1000}
+\\
+\hspace{1.6cm}
+Received character is available while reading this register.
+
+\subsection{Transmitter Holding Register - THR [Write Only] }
+\hspace{1.6cm}
+\textbf{Address - 0x1000}
+\\
+\hspace{1.6cm}
+Write transmit character  to this address. 
+
+
+
+\subsection{Interrupt Enable Register (IER)  [Read/Write] }
+\hspace{1.6cm}
+\textbf{Address - 0x1004}
+\\
+\hspace{1.6cm}
+ The Interrupt Enable register contains
+the bits which enable interrupts. The bit definitions for the register are shown in table \ref{tab:uartier}
+
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c| } 
+ \hline
+ Reserved   & EMSI & ELSI &  ETSI &  ERSI \\ 
+\hline
+31:4 & 3  &  2 & 1 & 0\\
+ \hline
+\end{tabular}
+%\caption{\label{tab:uartier} IER}
+\end{center}
+
+
+\begin{itemize}
+\item EMSI - Enable Modem status Interrupt
+\item ELSI - Enable line status Interrupt
+\item ETSI - Enable Transmitter fifo status interrupt.
+\item ERSI - Enable Receiver fifo status interrupt.
+\end{itemize}
+
+\subsection{Interrupt Identification Register (IIR)  [Read Only] }
+\hspace{1.6cm}
+\textbf{Address - 0x1008}
+\\
+\hspace{1.6cm}
+The Interrupt Identification register
+contains the priority interrupt identification. The bit definitions for the register are shown ine \ref{tab:uartiir}
+
+\begin{center}
+\begin{tabular}{|c|c|c| } 
+ \hline
+ Reserved   & IID & IP \\ 
+\hline
+31:4 & 3:1 & 0\\
+ \hline
+%\caption{\label{tab:uartiir} Address Mapping}
+\end{tabular}
+
+\end{center}
+
+
+
+\begin{itemize}
+\item IP - Interrupt pending
+\item IID -   Interrupt ID 
+\begin{itemize}
+\item 011 = Receiver line status
+\item 010 = Received Data Available
+\item 110 = Character Timeout
+\item 001 = Transmit holding register empty
+\item 000 = Modem status Interruot
+
+\end{itemize}
+\end{itemize}
+
+\subsection{Line Control Register (LCR)  [Read Only] }
+\hspace{1.6cm}
+\textbf{Address - 0x100C}
+\\
+\hspace{1.6cm}
+The Line Control register contains the
+serial communication configuration bits. The bit definitions for the register are shown below :
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c| } 
+ \hline
+ RSV   & DLAB & RSV &  Sticky parity &  Even parity & Odd parity & Stop Bits & Word lendth \\ 
+\hline
+31:8 & 7 & 6 & 5 & 4 & 3  &  2 & 1: 0\\
+ \hline
+\end{tabular}
+%\caption{\label{tab:uartier} IER}
+\end{center}
+
+
+\begin{itemize}
+\item Word length 
+\begin{itemize}
+\item 00 = 5 bits/char
+\item 01 = 6 bits/char
+\item 10 = 7 bits/char 
+\item 11 = 8 bits/char
+\end{itemize}
+\item Stop Bits 
+\begin{itemize}
+\item 0 = 1 stop  bits
+\item 1 = 2 stop bits
+\end{itemize}
+\item  Odd parity
+\begin{itemize}
+\item 0 = deselect odd parity
+\item 1 = select odd parity
+\end{itemize}
+\item  Even parity
+\begin{itemize}
+\item 0 = deselect even parity
+\item 1 = select even parity
+\end{itemize}
+\item  Sticky parity
+\begin{itemize}
+\item 0 = deselect Sticky parity
+\item 1 = select Sticky parity
+\end{itemize}
+
+\item DLAB
+\begin{itemize}
+\item 1 = Allows access to the Divisor Latch Registers and reading of the FIFO Control Register.
+\item 0 = Allows access to RBR, THR, IER and IIR registers.
+\end{itemize}
+
+\end{itemize}
+
+\textbf{ RSV - Reserved - Write Zero to all such fields in this document}
+
+
+\subsection{Modem Control Register - (MCR)  [Read Write] }
+\hspace{1.6cm}
+\textbf{Address - 0x1010}
+The Modem Control register contains the modem signaling configuration bits
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c| } 
+ \hline
+ RSV    & Loop & Out2  & Out1 & RTS & DTR\\ 
+\hline
+31:5 & 4 & 3 & 2  &  1 &  0\\
+ \hline
+\end{tabular}
+%\caption{\label{tab:uartier} IER}
+\end{center}
+
+\begin{itemize}
+\item Loop Back.
+\begin{itemize}
+\item 1 = Enables loopback.
+\item 0 = Disables loopback.
+\end{itemize}
+\item  User Output 2.
+\begin{itemize}
+\item 1 = Drives OUT2N Low.
+\item 0 = Drives OUT2N High.
+\end{itemize}
+
+\item  User Output 1.
+\begin{itemize}
+\item 1 = Drives OUT1N Low.
+\item 0 = Drives OUT1N High.
+
+\end{itemize}
+\item  RTS Request To Send.
+\begin{itemize}
+\item 1 = Drives RTSN Low.
+\item 0 = Drives RTSN High.
+\end{itemize}
+\item  DTR Data Terminal Ready.
+\begin{itemize}
+\item 1 = Drives DTRN Low.
+\item 0 = Drives DTRN High
+
+
+\end{itemize}
+\end{itemize}
+
+\subsection{Line Status Register - (LSR)  [Read Write] }
+\hspace{1.6cm}
+\textbf{Address - 0x1014}
+ The Line Status register contains the
+current status of receiver and transmitter.
+
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c| } 
+ \hline
+ RSV & ERR & RXAV & TEMT   & FE  & PE & OE & DR\\ 
+\hline
+31:7 & 7 & 6 & 5 & 4 & 3  &  2 & 1 & 0\\
+ \hline
+\end{tabular}
+%\caption{\label{tab:uartier} IER}
+\end{center}
+
+
+\begin{itemize}
+\item ERR - error in receiver fifo -  parity , framing or break 
+\item RXAV -  Receiver data present/available - means some data is received in the rx fifo.
+\item TEMT - Transmitter Empty
+\begin{itemize}
+\item 1 = Transmitter Empty
+\item 0 =  Transmitter not Empty
+\end{itemize}
+\end{itemize}
+\item BI - Break Interrupt - Sin low for entire period
+\item FE - Framing Error - Stop bit missing.
+\item PE - Parity error
+\item OE - Overrun error - Receiver fifo full and character came in.
+\item DR - Data ready - data in receiver fifo.
+\end{itemize}
+
+
+\subsection{Modem Status Register - (MSR)  [Read Write] }
+\hspace{1.6cm}
+\textbf{Address - 0x1018}
+ The Line Status register contains the
+current status of receiver and transmitter.
+
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c| } 
+ \hline
+ RSV & DCD & RI & DSR  & CTS & DDCD  & TERI & DDS & DCTS\\ 
+\hline
+31:8 & 7 & 6 & 5 & 4 & 3  &  2 & 1 & 0\\
+ \hline
+\end{tabular}
+%\caption{\label{tab:uartier} IER}
+\end{center}
+
+\begin{itemize}
+\item DCD Data Carrier Detect - Complement of DCDN input.
+\item RI - Ring Indicator - Complement of RIN input.
+\item DSR - Data Set Ready - Complement of DSRN input.
+\item CTS - Clear To Send - Complement of CTSN input.
+\item DDCD  - Delta Data Carrier Detect - Change in DCDN after last MSR read.
+\item TERI - Trailing Edge Ring Indicator - RIN has changed from a Low to a High.
+\item DDS -  Delta Data Set Ready - Change in DSRN after last MSR read.
+\item DCTS - Delta Clear To Send - Change in CTSN after last MSR read.
+\end{itemize}
+
+
+
+
+\subsection{Divisor Latch (Least Significant Byte) Register - DLL }
+\hspace{1.6cm}
+\textbf{Address - 0x1000}
+
+
+The Divisor Latch (Least Significant
+Byte) register holds the least significant byte of the Baud rate generator counter. This can bre written only if DLAB in LCR is '1'.
+
+\begin{center}
+\begin{tabular}{|c|c| } 
+ \hline
+ RSV    & DLL \\ 
+\hline
+31:8 & 7:0\\
+ \hline
+\end{tabular}
+%\caption{\label{tab:uartier} IER}
+\end{center}
+
+\subsection{Divisor Latch (Most Significant Byte) Register - DLH }
+\hspace{1.6cm}
+\textbf{Address - 0x1004}
+
+
+The Divisor Latch (Most Significant
+Byte) register holds the most significant byte of the Baud rate generator counter. 
+
+\begin{center}
+\begin{tabular}{|c|c| } 
+ \hline
+ RSV    & DLH \\ 
+\hline
+31:8 & 7:0\\
+ \hline
+\end{tabular}
+%\caption{\label{tab:uartier} IER}
+\end{center}
+
+\textbf{Both DLL and DLH  can be accessed when DLAB is set to '1'}
+
+\section{GPIO}
+\hspace{1.6cm}
+\textbf{Base Address - 0x6000\_0000}
+The GPIO is fairly simple. There are only 3 register to configure.
+
+\subsection{GPO - General Purpose Output  -  Read/Write}
+\hspace{1.6cm}
+\textbf{Address - Base Address + 0x0}
+\\
+\\
+\textbf{Default - 0x00000000 }
+The GPO is a 32 bit register with each bit value to control the 32 output.
+
+\subsection{GPO - General Purpose Input  - Read Only }
+\hspace{1.6cm}
+\textbf{Address - Base Address + 0x4}
+The GPI is a 32 bit register with each bit value representing the value on the 32 GPIO.
+
+
+\subsection{GPO - General Purpose Direction - GPD - Read/Write}
+\hspace{1.6cm}
+\textbf{Address - Base Address + 0xC}
+\\
+\\
+\textbf{Default - 0xFF000000}
+The GPD register is used to configure the GPIO pin's as output or input. A value of '1' set the corresponding pin as input and '0' set the corresponding pin as output. On reset the upper 8 bits are configured as Inputs and rest as outputs.
+
+
+\section{PWM}
+\hspace{1.6cm}
+\textbf{Base Address - 0x9000\_0000}
+There are 2 PWM out availabe in the system, each of which can be configured independently. The corresponding Register space are :
+
+\subsection{PWMENA - PWM Enable Register - Read/Write}
+\hspace{1.6cm}
+\textbf{Address - Base Address + 0x0} 
+\\
+\textbf{Default - 0x00000000}
+
+\begin{center}
+\begin{tabular}{|c|c|c| } 
+ \hline
+RSV & PWMEN1    & PWMEN0 \\ 
+\hline
+31:2 & 1 & 0\\
+ \hline
+\end{tabular}
+%\caption{\label{tab:uartier} IER}
+\end{center}
+
+\begin{itemize}
+\item PWMEN0
+\begin{itemize}
+\item 1 = Enable PWM 0
+\item 0 = Disable PWM 0
+\end{itemize}
+\item PWMEN1
+\begin{itemize}
+\item 1 = Enable PWM 1
+\item 0 = Disable PWM 1
+\end{itemize}
+\end{itemize}
+
+
+\subsection{PWM0CMPL - PWM0 Compare Low - Read/Write}
+\hspace{1.6cm}
+\textbf{Address - Base Address + 0x4}
+\\
+\\
+\textbf{Default - 0x00000000}
+
+The PWM0CMP is 32 bit register holding the value for PWM0 low period. The PWM0 is low for PWM0CMPL * SYS\_CLK\_PERIOD.
+
+\subsection{PWM0CMPH - PWM0 Compare high - Read/Write}
+\hspace{1.6cm}
+\textbf{Address - Base Address + 0xc}
+\\
+\\
+\textbf{Default - 0x00000000}
+
+The PWM0CMP is 32 bit register holding the value for PWM0 high period. The PWM0 is high for PWM0CMPH * SYS\_CLK\_PERIOD.
+
+
+\subsection{PWM1CMPL - PWM1 Compare Low - Read/Write}
+\hspace{1.6cm}
+\textbf{Address - Base Address + 0x10}
+\\
+\\
+\textbf{Default - 0x00000000}
+
+The PWM1CMP is 32 bit register holding the value for PWM1 low period. The PWM1 is low for PWM1CMPL * SYS\_CLK\_PERIOD.
+
+\subsection{PWM1CMPH - PWM1 Compare high - Read/Write}
+\hspace{1.6cm}
+\textbf{Address - Base Address + 0x14}
+\\
+\\
+\textbf{Default - 0x00000000}
+
+The PWM1CMP is 32 bit register holding the value for PWM1 high period. The PWM1 is high for PWM1CMPH * SYS\_CLK\_PERIOD.
+
+\section{PLIC}
+TODO
+\section{I2C}
+TODO
+\section{I2S} 
+TODO
+
+
+\chapter{Software Environment}
+\thispagestyle{logo}
+\section{Transmission/Reception} 
+ 
+For init uart do :
+ \begin{itemize} 
+\item Write 0x0000\_0003 to line control register (0x000c) .
+\end{itemize}
+
+
+For transmitting a UART character 8 bit/character 1 stop bit and no parity bit , perform the following operations :-
+
+\begin{itemize} 
+\item Write data in THR (0x0000).
+\item Check TEMT (4th bit in LSR (0x0014). If TEMT is '1' , repeat this step else write character to THR.
+\end{itemize}
+
+For receiving a UART character 8 bit/character 1 stop bit and no parity bit , perform the following operations :-
+
+\begin{itemize} 
+\item Write 0x0000\_0003 to line control register (0x000c) .
+\item Check RXAV (5th bit in LSR (0x0014). If RXAV is '1' , read from RBR (address 0x0000).
+
+\end{itemize}
+
+\end{document}
