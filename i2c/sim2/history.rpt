@@ -1,0 +1,1000 @@
+  177  gtkwave io_ports.vcd 
+  178  make clean
+  179  gtkwave io_ports.vcd 
+  180  make
+  181  make clean
+  182  make
+  183  gtkwave io_ports.vcd 
+  184  make clean
+  185  make
+  186  make clean
+  187  make
+  188  make clean
+  189  make
+  190  make clean
+  191  make
+  192  make clean
+  193  make
+  194  make clean
+  195  make
+  196  gtkwave io_ports.vcd 
+  197  make clean
+  198  make verify output_test
+  199  make verify-output_test
+  200  make clean
+  201  make
+  202  gtkwave io_ports.vcd 
+  203  make clean
+  204  make
+  205  make clean
+  206  make
+  207  make clean
+  208  make
+  209  make clean
+  210  make
+  211  nano expected_resulr.rpt
+  212  export PDK_ROOT=~/Documents/skywater_pdk
+  213  export OPENLANE_ROOT=~/Documents/openlane
+  214  make user_proj_example
+  215  reset
+  216  make user_proj_example
+  217  make
+  218  make clean
+  219  make
+  220  gtkwave io_ports.vcd 
+  221  nano expected_result.rpt
+  222  make clean
+  223  make
+  224  make clean
+  225  make
+  226  make clean
+  227  make
+  228  gtkwave io_ports.vcd 
+  229  make clean
+  230  make
+  231  gtkwave io_ports.vcd 
+  232  make clean
+  233  make
+  234  gtkwave io_ports.vcd 
+  235  make clean
+  236  make
+  237  make clean
+  238  make
+  239  make clean
+  240  make
+  241  make clean
+  242  make
+  243  make
+  244  reset
+  245  make
+  246  cd ..
+  247  sudo apt install Klayout
+  248  sudo dpkg -i klayout_0.27.1-1_amd64.deb 
+  249  sudo apt install ruby
+  250  sudo apt --fix-broken install ruby
+  251  sudo apt-get install ruby-full
+  252  git clone https://github.com/PyFive-RISC-V/caravel_pyfive.git
+  253  git init
+  254  git add .
+  255  make compress -j4
+  256  git commit -m "initial commit"
+  257  git config --global user.emal "ssprasad12a@gmail.com"
+  258  git config --global user.name "ssprasad"
+  259  git commit -m "initial commit"
+  260  git remote add origin  https://github.com/siva12a/SoC_io_expander.git
+  261  git remote add origin https://github.com/siva12a/Soc_io_expander.git
+  262  sudo git remote add origin https://github.com/siva12a/Soc_io_expander.git
+  263  git remote -v
+  264  ls
+  265  git branch -M main
+  266  sudo git remote add origin https://github.com/siva12a/Soc_io_expander.git
+  267  sudo git remote add https://github.com/siva12a/Soc_io_expander.git
+  268  git branch -M main
+  269  sudo git remote add https://github.com/siva12a/Soc_io_expander.git
+  270  sudo git remote add -m https://github.com/siva12a/Soc_io_expander.git
+  271  sudo git remote add  https://github.com/siva12a/Soc_io_expander.git
+  272  sudo git remote add github https://github.com/siva12a/Soc_io_expander.git
+  273  git remote -v
+  274  git push -f github master
+  275  git push  master
+  276  git push github  master
+  277  git show-ref
+  278  git push github  --force
+  279  reset
+  280  top
+  281  ls *.vcd
+  282  rm *.vcd
+  283  export PDK_ROOT=~/Documents/skywater_pdk
+  284  export OPENLANE_ROOT=~/Documents/openlane
+  285  make run-precheck
+  286  make install
+  287  ls
+  288  nano g.txt
+  289  git push -u master
+  290  git push -u 
+  291  git pull
+  292  git commit 
+  293  git pull
+  294  git commit 
+  295  git pull
+  296  git commit 
+  297  git push
+  298  git clone https://github.com/siva12a/soc_io_expander.git
+  299  cd soc_io_expander/
+  300  ls
+  301  git submodule add https://github.com/efabless/caravel-lite.git
+  302  ls
+  303  git push origin master
+  304  git push origin master --force
+  305  git push github --force
+  306  git push
+  307  git push master
+  308  git commit 
+  309  git push master
+  310  git commit master
+  311  git commit 
+  312  git push
+  313  ls
+  314  gunzip user_project_wrapper.mag -K
+  315  gunzip user_project_wrapper.mag -k
+  316  gzip user_project_wrapper.mag -k
+  317  export PDK_ROOT=~/Documents/skywater_pdk
+  318  export OPENLANE_ROOT=~/Documents/openlane
+  319  make user_proj_example 
+  320  reset
+  321  make user_proj_example 
+  322  make user_project_wrapper 
+  323  make user_proj_example 
+  324  make user_project_wrapper 
+  325  make precheck 
+  326  make run-precheck 
+  327  make run-precheck -help
+  328  make run-precheck -k
+  329  reset
+  330  cd ..
+  331  ls
+  332  git clone x-special/nautilus-clipboard
+  333  copy
+  334  file:///home/siva/Documents/caravel_user_project
+  335  git clone https://github.com/KLayout/klayout.git
+  336  cd klayout/
+  337  ./build.sh 
+  338  sudo apt install qmake
+  339  sudo apt install qt5-qmake
+  340  sudo apt --fix-broken install qt5-qmake
+  341  sudo apt install libqt5core5a
+  342  sudo apt install qtchooser
+  343  git init
+  344  git add .
+  345  git status
+  346  git commit -m "creating local repo"
+  347  git remote add origin https://github.com/siva12a/soc_io_expander.git
+  348  git submodule add https://github.com/efabless/caravel-lite
+  349  git commit -m "creating submodules"
+  350  git push -u origin master
+  351  git init 
+  352  history
+  353  git submodule -help
+  354  git add .
+  355  git status 
+  356  git commit -m "creating local repo"
+  357  git remote add origin https://github.com/siva12a/soc_io_expander.git
+  358  git remote add github https://github.com/siva12a/soc_io_expander.git
+  359  git push -u github master
+  360  git push -u github 
+  361  rm *.magic.lef
+  362  diff sky130_fd_sc_hd1.tlef sky130_fd_sc_hd.tlef 
+  363  diff sky130_fd_sc_hd1.tlef sky130_fd_sc_hd.tlef  -c
+  364  export PDK_ROOT=~/Documents/skywater_pdk
+  365  export OPENLANE_ROOT=~/Documents/openlane
+  366  make user_proj_example -help
+  367  make user_proj_example drc
+  368  make user_proj_example 
+  369  make clean
+  370  make user_proj_example 
+  371  export PDK_ROOT=~/Documents/skywater_pdk
+  372  export OPENLANE_ROOT=~/Documents/openlane
+  373  make user_proj_example 
+  374  make user_proj_example -drc
+  375  make user_proj_example -drc -report
+  376  make user_proj_example 
+  377  export PDK_ROOT=~/Documents/skywater_pdk
+  378  export OPENLANE_ROOT=~/Documents/openlane
+  379  make user_proj_example 
+  380  reset
+  381  make user_proj_example 
+  382  make clean
+  383  make user_proj_example 
+  384  export PDK_ROOT=~/Documents/skywater_pdk
+  385  export OPENLANE_ROOT=~/Documents/openlane
+  386  make user_proj_example 
+  387  export PDK_ROOT=~/Documents/skywater_pdk
+  388  export OPENLANE_ROOT=~/Documents/openlane
+  389  make user_proj_example 
+  390  cd caravel_user_project/
+  391  export PDK_ROOT=~/Documents/skywater_pdk
+  392  export OPENLANE_ROOT=~/Documents/openlane
+  393  make user_proj_example 
+  394  make user_project_wrapper 
+  395  make user_proj_example 
+  396  export PDK_ROOT=~/Documents/skywater_pdk
+  397  export OPENLANE_ROOT=~/Documents/openlane
+  398  make uncompress -j4
+  399  make caravel
+  400  make install
+  401  make user_proj_example
+  402  gnome-disk
+  403  gnome-disks
+  404  pwd
+  405  sudo cp ~/sky130_fd_sc_hd.tlef ./
+  406  sudo mv sky130_fd_sc_hd.tlef sky130_fd_sc_hd.tlef.tech
+  407  export PDK_ROOT=~/Documents/skywater_pdk
+  408  export OPENLANE_ROOT=~/Documents/openlane
+  409  make test
+  410  which magiv
+  411  which magic
+  412  magic sky130_fd_sc_hd.tlef 
+  413  magic -T sky130_fd_sc_hd.tlef 
+  414  magic -T ./sky130_fd_sc_hd.tlef 
+  415  magic -T sky130_fd_sc_hd.tlef 
+  416  magic -T sky130_fd_sc_hd.tlef.tech
+  417  klayout 
+  418  export PDK_ROOT=~/Documents/skywater_pdk
+  419  make skywater-library 
+  420  export PDK_ROOT=~/Documents/skywater_pdk
+  421  export OPENLANE_ROOT=~/Documents/openlane
+  422  make user_proj_example 
+  423  netgen
+  424  sudo apt upgrade netgen
+  425  export PDK_ROOT=~/Documents/skywater_pdk
+  426  export OPENLANE_ROOT=~/Documents/openlane
+  427  make user_proj_example
+  428  sudo apt upgrade magic
+  429  apt --fix-broken install
+  430  sudo apt --fix-broken install
+  431  sudo apt upgrade magic
+  432  sudo run apt-get update --fix-missing
+  433  sudo apt-get update --fix-missing
+  434  sudo apt upgrade magic
+  435  history
+  436  export PDK_ROOT=~/Documents/skywater_pdk
+  437  export OPENLANE_ROOT=~/Documents/openlane
+  438  make user_project_wrapper 
+  439  make compress -j4
+  440  git commit -m "changed core area"
+  441  git push github 
+  442  export PDK_ROOT=~/Documents/skywater_pdk
+  443  export OPENLANE_ROOT=~/Documents/openlane
+  444  make regression
+  445  export PDK_ROOT=~/Documents/skywater_pdk
+  446  export OPENLANE_ROOT=~/Documents/openlane
+  447  make user_proj_example 
+  448  git pull
+  449  git commit -m "changed core area"
+  450  git push github 
+  451  reset
+  452  history
+  453  git commit -m "changed core area"
+  454  git push -u github
+  455  git push -u main
+  456  git push main
+  457  git push -u github main
+  458  git status
+  459  git add .
+  460  git commit "changes in area"
+  461  git commit -m "changes in area"
+  462  git push -u soc_io_expander main
+  463  git push -u soc_io_expander
+  464  git push -u soc_io_expander/main
+  465  git push -u github soc_io_expander
+  466  git push -u github main
+  467  git clone https://github.com/Lampro-Mellon/Caravel_FPU.git
+  468  ls
+  469  cd Caravel_FPU/
+  470  make uncompress -j4
+  471  make install 
+  472  export OPENLANE_ROOT=~/Documents/fpu_design/
+  473  export PDK_ROOT=~/Documents/fpu_design/PDK
+  474  export OPENLANE_ROOT=~/Documents/fpu_design/OPENLANE
+  475  make install
+  476  make openlane
+  477  sudo make clone
+  478  cd openlane/
+  479  make
+  480  make openlane 
+  481  sudo make openlane 
+  482  export OPENLANE_ROOT=~/Documents/fpu_design/OPENLANE
+  483  sudo make openlane 
+  484  make openlane 
+  485  cd ..
+  486  ls
+  487  cd 
+  488  ls
+  489  cd Documents/fpu_design/
+  490  ls
+  491  cd Caravel_FPU/
+  492  export OPENLANE_ROOT=~/Documents/openlane/
+  493  export OPENLANE_ROOT=~/Documents/openlane
+  494  export PDK_ROOT=~/Documents/skywater_pdk
+  495  make user_proj_example 
+  496  export OPENLANE_ROOT=~/Documents/fpu_design/OPENLANE
+  497  make open
+  498  make openlane 
+  499  rm -r *
+  500  export PDK_ROOT=~/Documents/skywater_non
+  501  make pdk-nonnative
+  502  export OPENLANE_ROOT=~/Documents/openlane
+  503  make user_proj_example 
+  504  export PDK_ROOT=~/Documents/skywater_pdk
+  505  make user_proj_example 
+  506  git clone https://github.com/pwang7/caravel_user_project.git
+  507  cd caravel_user_project/
+  508  make uncompress
+  509  export PDK_ROOT=~/Documents/fpu_design/pdk
+  510  export OPENLANE_ROOT=~/Documents/fpu_design/openlane
+  511  make install 
+  512  make openlane 
+  513  export PDK_ROOT=~/Documents/skywater_pdk
+  514  export OPENLANE_ROOT=~/Documents/fpu_design/openlane
+  515  make user_proj_example 
+  516  export PDK_ROOT=~/Documents/fpu_design/sky_pdk
+  517  make pdk-nonnative 
+  518  cd ..
+  519  ls
+  520  rm -r sky_pdk/
+  521  sudo rm -r sky_pdk/
+  522  cd caravel_user_project/
+  523  make pdk
+  524  ls
+  525  cd ..
+  526  ls
+  527  rm -r sky_pdk/
+  528  sudo rm -r sky_pdk/
+  529  ls
+  530  cd caravel_user_project/
+  531  ls
+  532  ls
+  533  pwd
+  534  export PDK_ROOT=~/Documents/skywater_pdk
+  535  export OPENLANE_ROOT=~/Documents/openlane
+  536  cd caravel_user_project/
+  537  make user_proj_example 
+  538  make precheck 
+  539  make run-precheck 
+  540  make user_proj_example 
+  541  make run-precheck 
+  542  make user_proj_example 
+  543  make run-precheck 
+  544  make user_project_wrapper 
+  545  make user_proj_example 
+  546  make user_project_wrapper 
+  547  make user_proj_example 
+  548  make user_project_wrapper 
+  549  make user_proj_example 
+  550  shutdown -h now
+  551  klayout thejas64soc_top_15_06.gds
+  552  lsusb
+  553  gnome-disks
+  554  sudo apt install nvidia-smi
+  555  nvidia-smi
+  556  sudo apt install nvidia-smi
+  557  nvidia-smi
+  558  reset
+  559  nvidia-smi
+  560  reset
+  561  nvidia-smi
+  562  reset
+  563  nvidia-smi
+  564  top
+  565  cd ~/Documents/
+  566  klayout thejas64soc_top_15_06.gds
+  567  ls
+  568  python3 setup.py 
+  569  python setup.py 
+  570  export PDK_ROOT=~/Documents/skywater_pdk_1
+  571  export OPENLANE_ROOT=~/Documents/openlane
+  572  make pdk
+  573  export PDK_ROOT=~/Documents/skywater_pdk_1
+  574  export OPENLANE_ROOT=~/Documents/openlane
+  575  make user_proj_example 
+  576  export PDK_ROOT=~/Documents/skywater_pdk_1/skywater-pdk
+  577  make user_proj_example 
+  578  export PDK_ROOT=~/Documents/skywater_pdk_2
+  579  make pdk-nonnative 
+  580  pwd
+  581  klayout user_proj_example.gds
+  582  export PDK_ROOT=~/Documents/skywater_pdk_1
+  583  export OPENLANE_ROOT=~/Documents/openlane
+  584  make user_proj_example 
+  585  magic user_proj_example.mag 
+  586  magic user_proj_example.drc.mag 
+  587  magic
+  588  cd ~/
+  589  magic
+  590  magic ~/Documents/caravel_user_project/openlane/user_proj_example/runs/user_proj_example/results/magic/user_proj_example.drc.mag 
+  591  klayout 
+  592  make check
+  593  make check-licenses 
+  594  pip install setuptools
+  595  sudo apt install python3-pip
+  596  sudo apt-get update --fix-missing 
+  597  sudo apt install python3-pip
+  598  pip install setuptools
+  599  python3 scripts/python-skywater-pdk/setup.py 
+  600  python3 scripts/python-skywater-pdk/setup.py -help
+  601  python3 scripts/python-skywater-pdk/setup.py cmd --help
+  602  python3 scripts/python-skywater-pdk/setup.py --help
+  603  python3 scripts/python-skywater-pdk/setup.py install
+  604  sudo python3 scripts/python-skywater-pdk/setup.py install
+  605  git clone https://github.com/RTimothyEdwards/open_pdks.git
+  606  cd open_pdks/
+  607  ls
+  608  ./configure --help
+  609  ./configure --enable-sky130-pdk=~/Documents/sky_open 
+  610  ./configure --enable-sky130-pdk=~/Documents/skywater_pdk_1
+  611  make 
+  612  make install
+  613  sudo make install
+  614  cd /usr/share/pdk/sky130A
+  615  ls
+  616  nautilus ./
+  617  cd ~/Documents/
+  618  ls
+  619  cd caravel_user_project/
+  620  export PDK_ROOT=~/Documents/skywater_pdk_1
+  621  export OPENLANE_ROOT=~/Documents/openlane
+  622  make user_proj_example 
+  623  export CARAVEL_ROOT=$(pwd)/caravel
+  624  export PDK_ROOT=~/Documents/skywater_pdk_1
+  625  export OPENLANE_ROOT=~/Documents/openlane
+  626  make drc-user_proj_example 
+  627  td
+  628  chmod +X *
+  629  ./td
+  630  sudo ./td 
+  631  ls
+  632  td -gui
+  633  ./td -gui
+  634  sudo td -gui
+  635  ./td 
+  636  ./td -gui
+  637  top
+  638  export PDK_ROOT=~/Documents/skywater_pdk_1
+  639  export OPENLANE_ROOT=~/Documents/openlane
+  640  make user_proj_example 
+  641  make user_project_wrapper 
+  642  make run-precheck 
+  643  make compress -j4
+  644  git add .
+  645  git commit -m ""
+  646  git commit -m "installed pdk"
+  647  git push -u github main
+  648  git pull
+  649  make user_proj_example 
+  650  sudo https://github.com/efabless/caravel_user_project.git
+  651  sudo git clone https://github.com/efabless/caravel_user_project.git
+  652  cd caravel_user_project/
+  653  make install 
+  654  make install 
+  655  ls
+  656  make update_caravel 
+  657  sudo make update_caravel 
+  658  export PDK_ROOT=~/Documents/skywater_pdk_2
+  659  make all-skywater-libraries 
+  660  make native-build-pdk 
+  661  make update_caravel 
+  662  export OPENLANE_ROOT=~/Documents/openlane
+  663  export PDK_ROOT=~/Documents/sky_cor/skywater_pdk
+  664  make user_proj_example 
+  665  cd ~/
+  666  sudo apt-get remove magic --purge
+  667  sudo apt-get install m4 
+  668  sudo apt-get install tcsh 
+  669  sudo apt-get install csh 
+  670  sudo apt-get install libx11-dev 
+  671  sudo apt-get install tcl-dev tk-dev 
+  672  sudo apt-get install libncurses-dev 
+  673  cd Documents/
+  674  mkdir vlsi_tools
+  675  git clone git clone git://opencircuitdesign.com/magic 
+  676  git clone git clone git://opencircuitdesign.com/magic.git
+  677  git clone git://opencircuitdesign.com/magic.git
+  678  git clone git://opencircuitdesign.com/magic 
+  679  cd magic/
+  680  sudo ./configure 
+  681  make
+  682  make install
+  683  sudo make install
+  684  wd
+  685  pwd
+  686  export OPENLANE_ROOT=~/Documents/openlane
+  687  export PDK_ROOT=~/Documents/sky_cor/skywater_pdk
+  688  export CARAVEL_ROOT=~/Documents/caravel_user_project/caravel
+  689  make user_proj_example 
+  690  ls > list
+  691  klayout user_proj_example.gds
+  692  export OPENLANE_ROOT=~/Documents/openlane
+  693  export PDK_ROOT=~/Documents/sky_cor/skywater_pdk
+  694  export CARAVEL_ROOT=~/Documents/caravel_user_project/caravel
+  695  make clean
+  696  make user_proj_example 
+  697  export PDK_ROOT=~/Documents/sky_cor/skywater_pdk_cor
+  698  make pdk
+  699  cd ~/
+  700  sudo apt-get remove netgen --purge
+  701  cd Documents/vlsi_tools/
+  702  git clone git://opencircuitdesign.com/netgen
+  703  cd netgen/
+  704  ./configure 
+  705  make
+  706  sudo make install
+  707  cd ..
+  708  cd caravel_user_project
+  709  export OPENLANE_ROOT=~/Documents/openlane
+  710  export PDK_ROOT=~/Documents/sky_cor/skywater_pdk_cor
+  711  export CARAVEL_ROOT=~/Documents/caravel_user_project/caravel
+  712  make user_proj_example 
+  713  make user_proj_wrapper
+  714  make user_project_wrapper 
+  715  make run-precheck 
+  716  git add .
+  717  make compress -j4
+  718  git add .
+  719  git commit -m "final commit 0"
+  720  git commit -m ""
+  721  git push -u github main
+  722  GCC_PATH?=/opt/riscv32i/bin
+  723  GCC_PREFIX?=riscv32-unknown-elf
+  724  pwd
+  725  klayout user_project_wrapper.gds
+  726  make
+  727  make clean
+  728  make
+  729  make
+  730  make
+  731  export OPENLANE_ROOT=~/Documents/openlane
+  732  export PDK_ROOT=~/Documents/sky_cor/skywater_pdk_cor
+  733  export CARAVEL_ROOT=~/Documents/caravel_user_project/caravel
+  734  make user_proj_example 
+  735  make clean
+  736  make user_proj_example 
+  737  klayout 
+  738  convert export_compl.jpg -auto-orient export_ssp.pdf
+  739  sudo apt-get install imagemagick
+  740  convert export_compl.jpg -auto-orient export_ssp.pdf
+  741  sudo convert export_compl.jpg -auto-orient export_ssp.pdf
+  742  nano /etc/ImageMagick-6/policy.xml 
+  743  sudo nano /etc/ImageMagick-6/policy.xml 
+  744  convert export_compl.jpg -auto-orient export_ssp.pdf
+  745  klayout 
+  746  klayout  user_proj_example.def 
+  747  klayout user_proj_example.mag 
+  748  export OPENLANE_ROOT=~/Documents/openlane
+  749  export PDK_ROOT=~/Documents/sky_cor/skywater_pdk_cor
+  750  export CARAVEL_ROOT=~/Documents/caravel_user_project/caravel
+  751  make user_proj_example 
+  752  klayout user_proj_example.gds 
+  753  export OPENLANE_ROOT=~/Documents/openlane
+  754  export PDK_ROOT=~/Documents/sky_cor/skywater_pdk_cor
+  755  export CARAVEL_ROOT=~/Documents/caravel_user_project/caravel
+  756  make user_project_wrapper 
+  757  gs -sDEVICE=pdfwrite     -dNOPAUSE -dBATCH -dSAFER     -sOutputFile=vaccine_combined.pdf certificate_santhagm.pdf 
+  758  gs -sDEVICE=pdfwrite     -dNOPAUSE -dBATCH -dSAFER     -sOutputFile=vaccine_combined.pdf certificate_santhagm.pdf certificate_ambikadevi.pdf certificate_sivakumar.pdf 
+  759  export OPENLANE_ROOT=~/Documents/openlane
+  760  export PDK_ROOT=~/Documents/sky_cor/skywater_pdk_cor
+  761  export CARAVEL_ROOT=~/Documents/caravel_user_project/caravel
+  762  make user_proj_example 
+  763  make user_project_wrapper 
+  764  export OPENLANE_ROOT=~/Documents/openlane
+  765  export PDK_ROOT=~/Documents/sky_cor/skywater_pdk_cor
+  766  export CARAVEL_ROOT=~/Documents/caravel_user_project/caravel
+  767  make user_proj_example 
+  768  lsusb
+  769  export OPENLANE_ROOT=~/Documents/openlane
+  770  export PDK_ROOT=~/Documents/sky_cor/skywater_pdk_cor
+  771  export CARAVEL_ROOT=~/Documents/caravel_user_project/caravel
+  772  make user_project_wrapper 
+  773  nano run.sh
+  774  nano romgen.py
+  775  ./romgen.py io_ports.hex 
+  776  python3 romgen.py io_ports.hex 
+  777  python3 romgen.py io_ports.hex
+  778  reset
+  779  python3 romgen.py io_ports.hex
+  780  /opt/riscv32i/bin/riscv32-unknown-elf-gcc -help
+  781  /opt/riscv32i/bin/riscv32-unknown-elf-gcc --help
+  782  /opt/riscv32i/bin/riscv32-unknown-elf-gcc -march=rv32i -mabi=ilp32 io_ports.c -o io_portse
+  783  /opt/riscv32i/bin/riscv32-unknown-elf-objcopy -o io_portsobj
+  784  /opt/riscv32i/bin/riscv32-unknown-elf-objcopy -i io_portse -o io_portsobj
+  785  /opt/riscv32i/bin/riscv32-unknown-elf-objdump -i io_portse -o io_portsobj
+  786  /opt/riscv32i/bin/riscv32-unknown-elf-objdump --disassemble-all --disassemble-zeroes --section=.text --section=.data io_portse > io_ports.hex 
+  787  /opt/riscv32i/bin/riscv32-unknown-elf-objdump --disassemble-all --disassemble-zeroes --section=.text --section=.data io_portse -O binary > io_ports.hex 
+  788  /opt/riscv32i/bin/riscv32-unknown-elf-objdump --disassemble-all --disassemble-zeroes --section=.text --section=.data io_portse -o binary > io_ports.hex 
+  789  /opt/riscv32i/bin/riscv32-unknown-elf-objdump --disassemble-all --disassemble-zeroes --section=.text --section=.data io_portse > io_ports.hex 
+  790  /opt/riscv32i/bin/riscv32-unknown-elf-gcc -march=rv32i -mabi=ilp32 -nostdlib -nostartfiles io_ports.c -o io_portse.elf
+  791  /opt/riscv32i/bin/riscv32-unknown-elf-objdump --disassemble-all --disassemble-zeroes --section=.text --section=.data io_portse > io_ports.hex 
+  792  /opt/riscv32i/bin/riscv32-unknown-elf-gcc -march=rv32i -mabi=ilp32 -nostdlib -nostartfiles io_ports.c -o io_portse.elf
+  793  reset
+  794  ./run.sh 
+  795  sudo apt install elf2hex
+  796  /opt/riscv32i/bin/riscv32-unknown-elf-objdump --disassemble-all --disassemble-zeroes --section=.text --section=.data io_portse > io_ports.hex 
+  797  ./romgen.py io_ports.hex 
+  798  reset
+  799  python3 romgen.py 
+  800  reset
+  801  python3 romgen.py 
+  802  reset
+  803  python3 romgen.py 
+  804  python3 romgen.py > io_ports.mif
+  805  sudo apt-install fromelf
+  806  sudo apt install fromelf
+  807  sudo apt-get install fromelf
+  808  hexdump io_portse.elf
+  809  make
+  810  make elf
+  811  make
+  812  make elf
+  813  hexdump bin.bin 
+  814  /opt/riscv32i/bin/riscv32-unknown-elf-objcopy -O binary io_portse.elf > io.bin
+  815  /opt/riscv32i/bin/riscv32-unknown-elf-objcopy -O binary io_portse.elf 
+  816  /opt/riscv32i/bin/riscv32-unknown-elf-objcopy -O binary io_portse.hex
+  817  /opt/riscv32i/bin/riscv32-unknown-elf-objcopy -O binary io_ports.hex
+  818  ls
+  819  ./run.sh 
+  820  ls
+  821  /opt/riscv32i/bin/riscv32-unknown-elf-objcopy -O binary io_portse.elf bin.bin
+  822  reset
+  823  python3
+  824  python3 romgen.py io_ports.hex 
+  825  reset
+  826  python3 romgen.py io_ports.hex 
+  827  python3 romgen.py io_ports.hex > io_ports.hex2
+  828  python3 hex2bin.py io_ports.hex2
+  829  python3 hex2bin.py io_ports.hex2 > io_ports.mif
+  830  ./run.sh 
+  831  sudo apt install geany
+  832  ./hex2bin.py io_ports.hex2 > io_ports.mif
+  833  python3 hex2bin.py io_ports.hex2 > io_ports.mif
+  834  python3 romgen.py io_ports.hex > io_ports.hex2
+  835  python3 hex2bin.py io_ports.hex2 > io_ports.mif
+  836  ifconfig
+  837  ping 192.168.1.9
+  838  export OPENLANE_ROOT=~/Documents/openlane
+  839  export PDK_ROOT=~/Documents/sky_cor/skywater_pdk_cor
+  840  export CARAVEL_ROOT=~/Documents/caravel_user_project/caravel
+  841  make user_project_wrapper 
+  842  ./run.sh 
+  843  ./hex2bin.py 
+  844  python3 hex2bin.py 
+  845  python3 hex2bin.py > hello.mif
+  846  ./run.sh 
+  847  python3 hex2bin.py uart_hello_hex.hex > hello.mif
+  848  ./run.sh 
+  849  ./run.sh 
+  850  ifconfig
+  851  sudo apt install net-tools
+  852  ifconfig 
+  853  ./run.sh 
+  854  ifconfig 
+  855  ./run.sh 
+  856  ./hex2bin.py uart_hello_hex.hex2
+  857  python3 hex2bin.py uart_hello_hex.hex2 > hello.mif
+  858  python3 hex2bin.py uart_hello_hex.hex2 
+  859  python3 hex2bin.py io_ports.hex 
+  860  python3 hex2bin.py io_ports.hex2
+  861  reset
+  862  python3 hex2bin.py > hello.mif
+  863  ls
+  864  exit
+  865  nautilus ./
+  866  exit
+  867  ls
+  868  nautilus ./
+  869  cd Documents/c_files/
+  870  ls
+  871  scp hello.mif siva@192.168.1.9:/home/siva/
+  872  cd Documents/c_files/
+  873  ls
+  874  nano uart_hello.c
+  875  nano uart_hello_hex.hex
+  876  nano uart_hello.c
+  877  nano uart_hello_hex.hex
+  878  nano hello.mif
+  879  scp hello.mif siva@192.168.1.9:/home/siva/
+  880  nano uart_hello_hex.hex
+  881  ls
+  882  shutdown -h now
+  883  sudo shutdown -h now
+  884  la
+  885  ls
+  886  ifconfig
+  887  sudo apt install  openssh
+  888  sudo apt install  openssh-server
+  889  sudo ufw allow ssh
+  890  ssh siva@172.172.0.1
+  891  ssh siva@172.17.0.1
+  892  ssh siva@192.168.1.9
+  893  ls
+  894  exit
+  895  ./td -gui
+  896  ssh siva@192.168.1.11
+  897  ssh siva@192.168.1.9
+  898  sudo ./td -gui
+  899  ./hex2bin.py > io_ports.mif
+  900  python3 hex2bin.py > io_ports.mif
+  901  nano adz.py
+  902  chmod x *
+  903  chmod +x *
+  904  python3 adz.py > zero.txt
+  905  ./td gui
+  906  ./td -gui
+  907  ./run.sh 
+  908  python3 adz.py > zero.txt 
+  909  cat io_ports.mif zero.txt > io.mif
+  910  ./genmif.elf 
+  911  ./run.sh 
+  912  reset
+  913  ./run.sh 
+  914  nano genmif.c
+  915  gcc genmif.c -o genmif.elf
+  916  ./genmif.elf 
+  917  ./run.sh 
+  918  gcc genmif.c -o genmif.elf
+  919  ./genmif.elf 
+  920  gcc genmif.c -o genmif.elf
+  921  ./genmif.elf 
+  922  sudo ./td -gui
+  923  ./run.sh 
+  924  gcc genmif.c -o genmif.elf
+  925  ./run2.sh 
+  926  ./td -gui
+  927  sudo ./td -gui
+  928  ./genmif.elf 
+  929  sudo apt install minicom
+  930  reset
+  931  minicom 
+  932  sudo minicom -s
+  933  sudo minicom riscv
+  934  lsmod
+  935  ls -al /lib/modules/"$(uname -r)"/kernel/drivers/usb/serial/cp210x.ko
+  936  ls -al /lib/modules/"$(uname -r)"/kernel/drivers/usb/serial/usbserial.ko
+  937  sudo modprobe usbserial
+  938  sudo modprobe cp210x
+  939  sudo minicom riscv
+  940  chmod +x *
+  941  ./wirerom.py > uart_hello.txt
+  942  python3 wirerom.py > uart_hello.txt
+  943  ./run.sh 
+  944  scp wirerom.v siva@192.168.1.9:/home/siva/
+  945  scp uart_hello.hex siva@192.168.1.9:/home/siva/
+  946  python3 wirerom.py > uart_hello.txt
+  947  python3 wirerom.py > wirerom.v
+  948  reset
+  949  sudo minicom riscv 
+  950  ls -r *.v
+  951  ls al/*.v > ./verilog.list
+  952  ls ef/*.v > ./verilog.list1
+  953  ls ef2/*.v > ./verilog.list1
+  954  ls ef3/*.v > ./verilog.list2
+  955  ls eg/*.v > ./verilog.list3
+  956  ls elf/*.v > ./verilog.list4
+  957  cat verilog.list verilog.list1 verilog.list2 verilog.list3 verilog.list4 > veri.list
+  958  ls src/user/*.v v1.list
+  959  ls src/user/*.v > v1.list
+  960  cat veri.list v1.list > verilog.list
+  961  vvp design 
+  962  iverilog -s soc_top_tb -o design -c verilog.list 
+  963  sudo ./td -gui
+  964  ssh siva@192.168.1.9
+  965  gtkwave soc_top_tb.vcd 
+  966  iverilog -s soc_top_tb -o design -c verilog.list 
+  967  vvp design 
+  968  gtkwave soc_top_tb.vcd 
+  969  iverilog -s soc_top_tb -o design -c verilog.list 
+  970  vvp design 
+  971  gtkwave soc_top_tb.vcd 
+  972  iverilog -s soc_top_tb -o design -c verilog.list 
+  973  vvp design 
+  974  gtkwave soc_top_tb.vcd 
+  975  iverilog -s soc_top_tb -o design -c verilog.list 
+  976  vvp design 
+  977  gtkwave soc_top_tb.vcd 
+  978  iverilog -s soc_top_tb -o design -c verilog.list 
+  979  vvp design 
+  980  iverilog -s soc_top_tb -o design -c verilog.list 
+  981  vvp design 
+  982  gtkwave soc_top_tb.vcd 
+  983  iverilog -s soc_top_tb -o design -c verilog.list 
+  984  vvp design 
+  985  gtkwave soc_top_tb.vcd 
+  986  iverilog -s soc_top_tb -o design -c verilog.list 
+  987  gtkwave soc_top_tb.vcd 
+  988  iverilog -s soc_top_tb -o design -c verilog.list 
+  989  gtkwave soc_top_tb.vcd 
+  990  iverilog -s soc_top_tb -o design -c verilog.list 
+  991  vvp design 
+  992  gtkwave soc_top_tb.vcd 
+  993  iverilog -s soc_top_tb -o design -c verilog.list 
+  994  vvp design 
+  995  gtkwave soc_top_tb.vcd 
+  996  top
+  997  iverilog -s soc_top_tb -o design -c verilog.list 
+  998  vvp design 
+  999  iverilog -s soc_top_tb -o design -c verilog.list 
+ 1000  vvp design 
+ 1001  gtkwave soc_top_tb.vcd 
+ 1002  iverilog -s soc_top_tb -o design -c verilog.list 
+ 1003  vvp design 
+ 1004  gtkwave soc_top_tb.vcd 
+ 1005  top
+ 1006  kill 3732
+ 1007  sudo kill 3732
+ 1008  top
+ 1009  sudo minicom riscv 
+ 1010  sudo ./td -gui
+ 1011  sudo minicom riscv 
+ 1012  ./run.sh 
+ 1013  python3 wirerom.py > wirerom.v
+ 1014  nano run_sim.sh
+ 1015  nano uart_test.v
+ 1016  ./run.sh 
+ 1017  python3 wirerom.py > wirerom.v
+ 1018  ./run.sh 
+ 1019  python3 wirerom.py > wirerom.v
+ 1020  ./run
+ 1021  ls
+ 1022  chmod +x *
+ 1023  ./run_sim.sh 
+ 1024  iverilog -s soc_top_tb -o design -c verilog.list 
+ 1025  ./run_sim.sh 
+ 1026  sudo ./td -gui
+ 1027  iverilog -s soc_top_tb -o design -c verilog.list 
+ 1028  vvp design
+ 1029  gtkwave soc_top_tb.vcd 
+ 1030  iverilog -s soc_top_tb -o design -c verilog.list 
+ 1031  vvp design
+ 1032  gtkwave soc_top_tb.vcd 
+ 1033  sudo minicom riscv 
+ 1034  ./run.sh 
+ 1035  python3 wirerom.py > wirerom.v
+ 1036  ./run_sim.sh 
+ 1037  gtkwave soc_top_tb.v
+ 1038  gtkwave soc_top_tb.vcd 
+ 1039  sudo ./td -gui
+ 1040  sudo minicom riscv 
+ 1041  python3 wirerom.py > wirerom.v
+ 1042  ./run.sh 
+ 1043  sudo ./td -gui
+ 1044  ./run_sim.sh 
+ 1045  sudo ./td -gui
+ 1046  ./run.sh 
+ 1047  python3 wirerom.py > wirerom.v
+ 1048  ./run.sh 
+ 1049  python3 wirerom.py > wirerom.v
+ 1050  sudo ./td -gui
+ 1051  sudo minicom riscv 
+ 1052  ./run_sim.sh 
+ 1053  python3 wirerom.py > wirerom.v
+ 1054  ./run.sh 
+ 1055  ./run_sim.sh 
+ 1056  python3 wirerom.py > wirerom.v
+ 1057  ./run.sh 
+ 1058  python3 wirerom.py > wirerom.v
+ 1059  sudo minicom riscv 
+ 1060  python3 wirerom.py > wirerom.v
+ 1061  sudo minicom riscv 
+ 1062  ./run.sh 
+ 1063  sudo ./td -gui
+ 1064  ./run_sim.sh 
+ 1065  ./run_sim.sh 
+ 1066  nano backup.c
+ 1067  ./run_sim.sh 
+ 1068  python3 wirerom.py > wirerom.v
+ 1069  ./run_sim.sh 
+ 1070  ./run.sh 
+ 1071  python3 wirerom.py > wirerom.v
+ 1072  ./run.sh 
+ 1073  sudo ./td -gui
+ 1074  ./run_sim.sh 
+ 1075  sudo minicom riscv 
+ 1076  python3 wirerom.py > wirerom.v
+ 1077  ./run.sh 
+ 1078  ./run_sim.sh 
+ 1079  python3 wirerom.py > wirerom.v
+ 1080  ./run.sh 
+ 1081  sudo ./td -gui
+ 1082  python3 wirerom.py > wirerom2.v
+ 1083  ./run_sim.sh 
+ 1084  python3 wirerom.py > wirerom2.v
+ 1085  ./run.sh 
+ 1086  ./run.sh 
+ 1087  sudo rm 0r *.log
+ 1088  sudo rm -r *.log
+ 1089  sudo ./td -gui
+ 1090  python3 wirerom.py > wirerom2.v
+ 1091  ./run.sh 
+ 1092  ./run.sh 
+ 1093  ./run.sh 
+ 1094  ./run_sim.sh 
+ 1095  chmod +x *
+ 1096  ./test.py 
+ 1097  python3 test.py 
+ 1098  reset
+ 1099  python3 test.py 
+ 1100  reset
+ 1101  python3 test.py 
+ 1102  python3 romgen.py 
+ 1103  reset
+ 1104  python3 test.py 
+ 1105  cd ~/
+ 1106  sudo apt-get install default-jdk
+ 1107  echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
+ 1108  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 642AC823
+ 1109  sudo apt-get update 
+ 1110  sudo apt-get install sbt
+ 1111  sbt
+ 1112  wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+ 1113  sudo dpkg -i google-chrome-stable_current_amd64.deb
+ 1114  sbt
+ 1115  gcc genmif.c -o genmif.elf
+ 1116  ./genmif.elf 
+ 1117  ./run.sh 
+ 1118  python3 wirerom.py > wirerom.
+ 1119  python3 wirerom.py > wirerom.v
+ 1120  ./run.sh 
+ 1121  ./run_sim.sh 
+ 1122  gcc genmif.c -o genmif.elf
+ 1123  ./genmif.elf 
+ 1124  gcc genmif.c -o genmif.elf
+ 1125  ./genmif.elf 
+ 1126  python3 wirerom.py > wirerom.v
+ 1127  sudo minicom riscv 
+ 1128  gcc genmif.c -o genmif.elf
+ 1129  ./genmif.elf 
+ 1130  gcc genmif.c -o genmif.elf
+ 1131  ./genmif.elf 
+ 1132  gcc genmif.c -o genmif.elf
+ 1133  ./genmif.elf 
+ 1134  gcc genmif.c -o genmif.elf
+ 1135  ./genmif.elf 
+ 1136  python3 wirerom.py > wirerom.v
+ 1137  ./run.sh 
+ 1138  python3 wirerom.py > wirerom.v
+ 1139  ./run_sim.sh 
+ 1140  ./run.sh 
+ 1141  python3
+ 1142  nano miffrmhex.py
+ 1143  python3 miffrmhex.py > uart.mif
+ 1144  ./miffrmhex.py 
+ 1145  python3 miffrmhex.py 
+ 1146  python3 miffrmhex.py > uart.mif
+ 1147  gcc genmif.c -o genmif.elf
+ 1148  ./genmif.elf 
+ 1149  sudo minicom riscv 
+ 1150  python3
+ 1151  ./genmif.elf 
+ 1152  sudo ./td -gui
+ 1153  sudo minicom riscv 
+ 1154  python3 wirerom64.py > wirerom64.v
+ 1155  python3 wirerom.py > wirerom.v 
+ 1156  ./run_sim.sh 
+ 1157  ./run.sh 
+ 1158  ./run_sim.sh 
+ 1159  ./run_sim.sh 
+ 1160  sudo ./td -gui
+ 1161  ./run.sh 
+ 1162  nano pipebck.v
+ 1163  python3 wirerom64.py > wirerom64.v 
+ 1164  ./run.sh 
+ 1165  python3 miffrmhex64.py > uart64.mif
+ 1166  sudo ./td -gui
+ 1167  sudo minicom riscv 
+ 1168  top
+ 1169  sbt
+ 1170  nano do.sh
+ 1171  ./run_sim.sh 
+ 1172  reset
+ 1173  ./run_sim.sh 
+ 1174  reset
+ 1175  ./run_sim.sh 
+ 1176  history > history.rpt
