@@ -70,7 +70,7 @@ assign gpio_intr = 1'b0;
                             GPO_ADDR     : begin apb_rdata  <= {12'h000,gpo_r}  ;end
                             GPID_ADDR    : begin apb_rdata  <= {12'h000,gpd_r}  ;end
                             GPI_ADDR     : begin apb_rdata  <= {12'h000,gpi}; end
-                            default      : begin apb_rdata  <= apb_rdata  <= 32'h0000_0000; end
+                            default      : begin apb_rdata   <= 32'h0000_0000; end
                     endcase      
                             
             end            
